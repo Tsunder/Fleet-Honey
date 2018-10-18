@@ -1,0 +1,21 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [{
+      "all_frames": true,
+      "js": [ "nav.js"],
+      "matches": [ "*://*.fleet.sylfex.com/nav.php*" ]
+   } ],
+   "content_security_policy": "script-src 'self'; object-src 'self'",
+   "description": "User interface enhancements for the online game Fleet.",
+   "icons": {
+   },
+   "manifest_version": 3,
+   "minimum_chrome_version": "42",
+   "name": "Fleet Honey",
+   "permissions": [ "notifications", "storage", "*://*.fleet.sylfex.com/*" ],
+   "version": "9.1.20181017",
+   "web_accessible_resources": [ "icons/16.png", "icons/48.png", "icons/down.png" ]
+}
