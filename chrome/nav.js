@@ -37,6 +37,10 @@ function combatConsumables(doc){
 	function buildConsumablesHTML() {
 		var cells = doc.querySelector("a[href='/nav.php?action=shield_cells']")
 		var bots = doc.querySelector("a[href='/nav.php?action=nanobots']")
+		
+		if (!bots && !cells) {
+			return;
+		}
 
 		var table = document.createElement('table');
 		table.setAttribute('class', 'tin');
