@@ -16,6 +16,6 @@
    "minimum_chrome_version": "42",
    "name": "Fleet Honey",
    "permissions": [ "notifications", "storage", "*://*.fleet.sylfex.com/*" ],
-   "version": "9.1.20181017",
-   "web_accessible_resources": [ "icons/16.png", "icons/48.png", "icons/down.png" ]
+   "version": "0.1.20181017",
+   "web_accessible_resources": [  ]
 }
