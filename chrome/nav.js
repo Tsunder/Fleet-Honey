@@ -48,11 +48,22 @@ function combatConsumables(doc){
 
 		if (bots) {
 			var _botsCount = bots.innerHTML.split(" ")[0]
-			table.innerHTML += '<tr><td align="right"><img src="/img/goods/nanobots.x16.png"> Bots: ' + _botsCount + '  <form style="display:inline" name="botsForm" id="botsForm" method="POST" action="/nav.php"><input type="text" name="nanoqty" value="' + '' +'" size="4" class="DYN_S"> <input class="DYN_S" type="submit" value="Use"></form> </td></tr>';
+
+			var _nanoQty = ""
+			var _botsForm = doc.getElementById("botsForm");
+			if (_botsForm) {
+				_nanoQty = _botsForm.firstElementChild.getAttribute("value");
+			}
+			table.innerHTML += '<tr><td align="right"><img src="/img/goods/nanobots.x16.png"> Bots: ' + _botsCount + '  <form style="display:inline" name="botsForm" id="botsForm" method="POST" action="/nav.php"><input type="text" name="nanoqty" value="' + _nanoQty +'" size="4" class="DYN_S"> <input class="DYN_S" type="submit" value="Use"></form> </td></tr>';
 		}
 		if (cells) {
 			var _cellsCount = cells.innerHTML.split(" ")[0]
-			table.innerHTML += '<tr><td align="right"><img src="/img/goods/shieldcells.x16.png"> Cells: ' + _cellsCount + ' <form style="display:inline" name="cellsForm" id="cellsForm" method="POST" action="/nav.php"><input type="text" name="cellsqty" value="' + 1 +'" size="4" class="DYN_S"> <input class="DYN_S" type="submit" value="Use"></form></td></tr>';
+			var _cellsQty = 1;
+			var _cellsForm = doc.getElementById("cellsForm");
+			if (_cellsForm) {
+				_cellsQty = Math.max(_cellsForm.firstElementChild.getAttribute("value"),1);
+			}
+			table.innerHTML += '<tr><td align="right"><img src="/img/goods/shieldcells.x16.png"> Cells: ' + _cellsCount + ' <form style="display:inline" name="cellsForm" id="cellsForm" method="POST" action="/nav.php"><input type="text" name="cellsqty" value="' + _cellsQty +'" size="4" class="DYN_S"> <input class="DYN_S" type="submit" value="Use"></form></td></tr>';
 		}
 		table.innerHTML += '</tbody>'
 		return table;
